@@ -16,13 +16,13 @@ public class FireBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name != "Enemy")
+        if(!other.gameObject.CompareTag("Enemy"))
         {
             return;
         }
 
         Destroy(gameObject);
-        _Enemy.GetComponent<EnemyController>().EnemyTakeDamage(100);
+        _Enemy.GetComponent<EnemyController>().EnemyTakeDamage(20);
     }
 
     // Update is called once per frame
