@@ -308,7 +308,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037780398923159921}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
@@ -331,6 +331,7 @@ MonoBehaviour:
   EyeColor: {r: 1, g: 0.9411765, b: 0.1254902, a: 0}
   LeftArmColor: {r: 0.85882354, g: 0.2714532, b: 0.254902, a: 0}
   RightArmColor: {r: 0.85882354, g: 0.27058825, b: 0.25490198, a: 0}
+  _FireBall: {fileID: 3409906668769400358, guid: 15a13f3ef6447214babb7b2077f96187, type: 3}
 --- !u!54 &2037780398923159928
 Rigidbody:
   m_ObjectHideFlags: 0
