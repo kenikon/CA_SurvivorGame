@@ -21,8 +21,9 @@ public class FireBall : MonoBehaviour
             return;
         }
 
-        Destroy(gameObject);
+        if(_Enemy != null)
         _Enemy.GetComponent<EnemyController>().EnemyTakeDamage(20);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

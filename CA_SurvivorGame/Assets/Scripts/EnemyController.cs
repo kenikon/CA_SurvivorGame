@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
-        return;
+        // return;
     }
 
     // Update is called once per frame
@@ -64,6 +64,6 @@ public class EnemyController : MonoBehaviour
          transform.position += Speed * Time.deltaTime * transform.forward;
 
 
-        
+
     }
 }
