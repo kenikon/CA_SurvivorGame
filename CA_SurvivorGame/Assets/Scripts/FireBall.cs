@@ -22,7 +22,7 @@ public class FireBall : MonoBehaviour
         }
 
         Destroy(gameObject);
-        _Enemy.GetComponent<EnemyController>().EnemyTakeDamage(10);
+        _Enemy.GetComponent<EnemyController>().EnemyTakeDamage(100);
     }
 
     // Update is called once per frame

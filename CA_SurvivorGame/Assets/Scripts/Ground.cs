@@ -13,10 +13,10 @@ public class Ground : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        int EnemiesToSpawn = 5;
+        int EnemiesToSpawn = 15;
         for (int i = 0; i < EnemiesToSpawn; i++)
         {
-            GameObject temp = Instantiate(EnemyPrefab, transform);
+            GameObject temp = Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
             temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
         }
     }
