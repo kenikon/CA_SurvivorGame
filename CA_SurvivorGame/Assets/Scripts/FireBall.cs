@@ -6,24 +6,23 @@ public class FireBall : MonoBehaviour
 {
     [SerializeField] float Speed;
     GameObject _Player;
-    GameObject _Enemy;
     // Start is called before the first frame update
     void Start()
     {
         _Player = GameObject.FindGameObjectWithTag("Player");
-        _Enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.gameObject.CompareTag("Enemy"))
-        {
-            return;
-        }
+        // if(!other.gameObject.CompareTag("Enemy"))
+        // {
+        //     return;
+        // }
 
-        if(_Enemy != null)
-        _Enemy.GetComponent<EnemyController>().EnemyTakeDamage(20);
-        Destroy(gameObject);
+        if (other.transform.CompareTag("Enemy")) {
+            other.transform.GetComponent<EnemyController>().EnemyTakeDamage(20);
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 MoveVelocity;
 
     private Camera _MainCamera;
+    private Plane GroundPlane;
 
     [SerializeField] GameObject Projectile;
     [SerializeField] Transform ProjectileTransform;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         _MainCamera = FindObjectOfType<Camera>();
+        GroundPlane = new Plane(Vector3.up, Vector3.zero);
 
         _Enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
@@ -88,12 +90,12 @@ public class PlayerController : MonoBehaviour
         MoveVelocity = MoveInput * MoveSpeed;
 
         Ray CameraRay = _MainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane GroundPlane = new Plane(Vector3.up, Vector3.zero);
+        // Plane GroundPlane = new Plane(Vector3.up, Vector3.zero);
 
         if (GroundPlane.Raycast(CameraRay, out float RayLength))
         {
             Vector3 PointToLook = CameraRay.GetPoint(RayLength);
-            // Debug.DrawLine(CameraRay.origin, PointToLook, Color.magenta);
+            Debug.DrawLine(CameraRay.origin, PointToLook, Color.magenta);
 
             transform.LookAt(new Vector3(PointToLook.x, transform.position.y, PointToLook.z));
         }

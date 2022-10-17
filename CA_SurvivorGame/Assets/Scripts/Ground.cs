@@ -32,7 +32,7 @@ public class Ground : MonoBehaviour
         {
             Point = GetRandomPointInCollider(collider);
         }
-        Point.y = 1;
+        Point.y = 2;
         return Point;
     }
 

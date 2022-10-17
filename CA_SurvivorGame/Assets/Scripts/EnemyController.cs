@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] Color LeftArmColor;
     GameObject RightArm;
     [SerializeField] Color RightArmColor;
+    Rigidbody rb;
     GameObject _Player;
 
     void Start()
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour
         ColorizedBodyParts(RightArm, RightArmColor);
 
         _Player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody>();
+
     }
 
     void ColorizedBodyParts(GameObject go, Color c)
@@ -44,7 +47,6 @@ public class EnemyController : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
-        // return;
     }
 
     // Update is called once per frame
@@ -59,11 +61,9 @@ public class EnemyController : MonoBehaviour
          if (Vector3.Distance(transform.position, _Player.transform.position) <= 1.5f)
          {
              _Player.GetComponent<PlayerController>().PlayerTakeDamage();
-         }
+        }
 
-         transform.position += Speed * Time.deltaTime * transform.forward;
-
-
-
+          transform.position += Speed * Time.deltaTime * transform.forward;
+        //rb.AddForce(Vector3.forward * Speed * Time.deltaTime,ForceMode.Impulse);
     }
 }
